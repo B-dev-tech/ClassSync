@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassSync - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ps-purple-neon: #8e84f5; 
+            --ps-bg-dark: #050509;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            margin: 0; min-height: 100vh;
+            background-color: var(--ps-bg-dark);
+            background-image: 
+                linear-gradient(rgba(112, 102, 224, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 102, 224, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            font-family: 'Noto Sans Thai', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(112, 102, 224, 0.3), 0 0 20px rgba(112, 102, 224, 0.1); }
+            50% { box-shadow: 0 0 20px rgba(112, 102, 224, 0.5), 0 0 30px rgba(112, 102, 224, 0.3); }
+        }
+
+        @keyframes textNeon {
+            0%, 100% { text-shadow: 0 0 5px rgba(112, 102, 224, 0.5); }
+            50% { text-shadow: 0 0 10px rgba(112, 102, 224, 0.8), 0 0 15px rgba(112, 102, 224, 0.5); }
+        }
+
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 600px;
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(112, 102, 224, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex; justify-content: space-around; align-items: center;
+            box-shadow: 0 0 15px rgba(112, 102, 224, 0.4);
+            z-index: 1000;
+            animation: fadeInUp 0.5s ease-out, neonPulse 3s infinite;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--ps-purple-neon);
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--ps-purple-neon);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute; bottom: 0; left: 50%;
+            width: 0; height: 2px;
+            background-color: var(--ps-purple-neon);
+            box-shadow: 0 0 10px var(--ps-purple-neon);
+            transition: 0.3s;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after { width: 80%; }
+
+        .container {
+            padding-top: 130px;
+            padding-bottom: 50px;
+            max-width: 850px;
+            margin: auto;
+            padding-left: 20px; padding-right: 20px;
+        }
+
+        h1, h2 {
+            color: #fff;
+            animation: textNeon 3s infinite;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(20, 20, 30, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(112, 102, 224, 0.15);
+            margin-bottom: 25px;
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+
+        .card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 5px; height: 100%;
+            background-color: var(--ps-purple-neon);
+            box-shadow: 0 0 15px var(--ps-purple-neon);
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(112, 102, 224, 0.4);
+            box-shadow: 0 10px 30px rgba(112, 102, 224, 0.2);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: var(--ps-purple-neon);
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .btn-container { text-align: right; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--ps-purple-neon);
+            border: 2px solid var(--ps-purple-neon);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--ps-purple-neon);
+            color: #fff;
+            box-shadow: 0 0 20px var(--ps-purple-neon);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="homework.html">Homework</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-title">ClassSync Dashboard</h1>
+
+        <div class="card">
+            <h2>📢 ประกาศจาก Admin</h2>
+            <div id="announcement-content">กำลังโหลดประกาศ...</div>
+        </div>
+
+        <div class="card" id="hw-card">
+            <h2>📚 การบ้านล่าสุด</h2>
+            <div id="hw-content">กำลังโหลดข้อมูล...</div>
+        </div>
+
+        <div class="card" id="event-card">
+            <h2>📅 กิจกรรมเร็วๆ นี้</h2>
+            <div id="event-content">กำลังโหลดข้อมูล...</div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

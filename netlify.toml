@@ -1,0 +1,13 @@
+[build]
+  publish = "." 
+  functions = "netlify/functions"
+
+[functions]
+  # แทนที่จะใส่ node_version ตรงๆ ให้ใช้ node_bundler หรือลบออกไปเลย
+  # Netlify จะใช้ Node เวอร์ชันล่าสุดให้อัตโนมัติครับ
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
