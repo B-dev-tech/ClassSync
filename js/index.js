@@ -11,25 +11,25 @@ async function loadDashboard() {
         
         const data = await response.json();
 
-        // 1. แสดงประกาศ
+
         if (data.announcement && data.announcement.text) {
-            announceContent.innerHTML = `<p>${data.announcement.text}</p>`;
+            announceContent.innerHTML = `<p>${data.announcements.text}</p>`;
         } else {
             announceContent.innerHTML = "<p>ไม่มีประกาศในขณะนี้</p>";
         }
 
-        // 2. แสดงการบ้าน
+  
         if (data.homework && data.homework.length > 0) {
-            hwContent.innerHTML = data.homework.map(item => `<p>• ${item.title}</p>`).join('');
+            hwContent.innerHTML = data.homeworks.map(item => `<p>• ${item.title}</p>`).join('');
         } else {
-            hwContent.innerHTML = "<p>ยังไม่มีการบ้านครับ</p>";
+            hwContent.innerHTML = "<p>ยังไม่มีการบ้าน</p>";
         }
 
-        // 3. แสดงกิจกรรม
+  
         if (data.events && data.events.length > 0) {
             eventContent.innerHTML = data.events.map(item => `<p>• ${item.name}</p>`).join('');
         } else {
-            eventContent.innerHTML = "<p>ยังไม่มีกิจกรรมเร็วๆ นี้ครับ</p>";
+            eventContent.innerHTML = "<p>ยังไม่มีกิจกรรมเร็วๆ นี้</p>";
         }
 
     } catch (error) {
